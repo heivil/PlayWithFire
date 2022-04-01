@@ -18,17 +18,11 @@ public class FireBall : MonoBehaviour
         _rb.velocity = transform.TransformDirection(_startVelocity);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void Update()
     {
-        if (collision.gameObject.layer == 6)
-        {
-            Vector2 currentVelocity = _rb.velocity;
-            Vector2 collisionNormal = collision.contacts[0].normal;
-            Vector2 newVelocity = Vector2.Reflect(currentVelocity, collisionNormal);
-            print(_rb.velocity);
-            _rb.velocity = _rb.velocity * -1;
-            collision.gameObject.SetActive(false);
-            print(_rb.velocity);
-        }
+        Vector2 v = GetComponent<Rigidbody2D>().velocity;
+        float angle = Mathf.Atan2(v.y, v.x) * Mathf.Rad2Deg -90;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
+
 }
