@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FireBall : MonoBehaviour
 {
-    public float _speed = 5, _maxSpeed = 10;
+    public float _speed = 5, _maxSpeed = 10, _speedIncrease = 0.1f;
     private Rigidbody2D _rb;
     private Vector2 _startVelocity;
 
@@ -18,11 +18,23 @@ public class FireBall : MonoBehaviour
         _rb.velocity = transform.TransformDirection(_startVelocity);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        Vector2 v = GetComponent<Rigidbody2D>().velocity;
-        float angle = Mathf.Atan2(v.y, v.x) * Mathf.Rad2Deg -90;
+        float angle = Mathf.Atan2(_rb.velocity.y, _rb.velocity.x) * Mathf.Rad2Deg -90;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == 6)
+        {
+            if(_rb.velocity.magnitude < 10)
+            {
+                Vector2 localVelocity = transform.InverseTransformDirection(_rb.velocity);
+                Vector2 newVelocity = new Vector2(0, localVelocity.y + _speedIncrease);
+                _rb.velocity = transform.TransformDirection(newVelocity);
+            }
+            
+        }
+    }
 }

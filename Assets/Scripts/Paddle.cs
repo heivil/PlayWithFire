@@ -4,23 +4,33 @@ using UnityEngine;
 
 public class Paddle : MonoBehaviour
 {
-    public float RotateSpeed = 5f;
-    public float Radius = 5f;
-
-    private Vector2 _centre;
+    public float _rotateSpeed = 5f;
+    public float _radius = 5f;
+    public GameObject _center;
     private float _angle;
-
     private void Start()
     {
-        _centre = Vector2.zero;
+        Vector2 offset = new Vector2(Mathf.Sin(_angle), Mathf.Cos(_angle)) * _radius;
+        transform.position = (Vector2)_center.transform.position - offset;
+        transform.up = _center.transform.position - transform.position;
     }
-
     private void Update()
     {
-        _angle += RotateSpeed * Time.deltaTime;
+        if (Input.GetKey("left"))
+        {
+            RotateAndLook(_rotateSpeed);
+        }
+        else if (Input.GetKey("right"))
+        {
+            RotateAndLook(-_rotateSpeed);
+        }
+    }
 
-        Vector2 offset = new Vector2(Mathf.Sin(_angle), Mathf.Cos(_angle)) * Radius;
-        transform.position = _centre + offset;
-        print(offset);
+    private void RotateAndLook(float rotateSpeed)
+    {
+        _angle += rotateSpeed * Time.deltaTime;
+        Vector2 offset = new Vector2(Mathf.Sin(_angle), Mathf.Cos(_angle)) * _radius;
+        transform.position = (Vector2)_center.transform.position - offset;
+        transform.up = _center.transform.position - transform.position;
     }
 }
