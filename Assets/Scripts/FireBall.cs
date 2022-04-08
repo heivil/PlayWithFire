@@ -37,4 +37,13 @@ public class FireBall : MonoBehaviour
             
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == 9)
+        {
+            transform.position = Vector2.zero;
+            _rb.velocity = transform.TransformDirection(_startVelocity);
+        }
+    }
 }
