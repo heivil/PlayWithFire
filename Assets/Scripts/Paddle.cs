@@ -8,6 +8,7 @@ public class Paddle : MonoBehaviour
     public float _radius = 5f;
     public GameObject _center;
     private float _angle;
+
     private void Start()
     {
         Vector2 offset = new Vector2(Mathf.Sin(_angle), Mathf.Cos(_angle)) * _radius;

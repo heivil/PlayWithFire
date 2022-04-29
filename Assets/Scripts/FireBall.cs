@@ -7,6 +7,8 @@ public class FireBall : MonoBehaviour
     public float _speed = 5, _maxSpeed = 10, _speedIncrease = 0.1f;
     private Rigidbody2D _rb;
     private Vector2 _startVelocity;
+    public GameObject _fireSplash;
+    private Vector3 _splashOffset = new Vector3(0, 0.2f, 0);
 
     private void Awake()
     {
@@ -33,6 +35,7 @@ public class FireBall : MonoBehaviour
                 Vector2 localVelocity = transform.InverseTransformDirection(_rb.velocity);
                 Vector2 newVelocity = new Vector2(0, localVelocity.y + _speedIncrease);
                 _rb.velocity = transform.TransformDirection(newVelocity);
+  
             }
             
         }
@@ -44,6 +47,11 @@ public class FireBall : MonoBehaviour
         {
             transform.position = Vector2.zero;
             _rb.velocity = transform.TransformDirection(_startVelocity);
+        }else if (collision.gameObject.layer == 6)
+        {
+            _fireSplash.transform.position = transform.position + transform.up / 2;
+            _fireSplash.transform.rotation = collision.transform.rotation;
+            _fireSplash.gameObject.SetActive(true);
         }
     }
 }
