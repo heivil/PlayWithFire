@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 303903025}
   - component: {fileID: 303903022}
   - component: {fileID: 303903024}
+  - component: {fileID: 303903026}
   m_Layer: 6
   m_Name: Paddle
   m_TagString: Untagged
@@ -248,6 +249,39 @@ MonoBehaviour:
   _rotateSpeed: 5
   _radius: 5
   _center: {fileID: 1335332717}
+  _shrinkInterval: 5
+  _sprites:
+  - {fileID: -3011869301351494817, guid: 1c18afb67dc86ce409b71173daa19652, type: 3}
+  - {fileID: -6036321051245511272, guid: 1c18afb67dc86ce409b71173daa19652, type: 3}
+  - {fileID: 2367915048766620670, guid: 1c18afb67dc86ce409b71173daa19652, type: 3}
+  - {fileID: 8929221362709844635, guid: 1c18afb67dc86ce409b71173daa19652, type: 3}
+  - {fileID: -162959626738317836, guid: 1c18afb67dc86ce409b71173daa19652, type: 3}
+  - {fileID: 5312080173666417103, guid: 1c18afb67dc86ce409b71173daa19652, type: 3}
+  - {fileID: -6795618160563387572, guid: 1c18afb67dc86ce409b71173daa19652, type: 3}
+  - {fileID: -5003310331852863002, guid: 1c18afb67dc86ce409b71173daa19652, type: 3}
+  - {fileID: 5993293409908421260, guid: 1c18afb67dc86ce409b71173daa19652, type: 3}
+  - {fileID: -7475341525177623894, guid: 1c18afb67dc86ce409b71173daa19652, type: 3}
+  - {fileID: 835611918330174858, guid: 1c18afb67dc86ce409b71173daa19652, type: 3}
+  - {fileID: 8513528844412237058, guid: 1c18afb67dc86ce409b71173daa19652, type: 3}
+--- !u!95 &303903026
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303903021}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d5b65a71565f9d14393e8764ac9a9807, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
