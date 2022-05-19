@@ -9,6 +9,7 @@ public class FireBall : MonoBehaviour
     private Vector2 _startVelocity;
     public GameObject _fireSplash;
     private Vector3 _splashOffset = new Vector3(0, 0.2f, 0);
+    public GameObject _gameOverFire;
 
     private void Awake()
     {
@@ -45,6 +46,7 @@ public class FireBall : MonoBehaviour
     {
         if (collision.gameObject.layer == 9)
         {
+            _gameOverFire.SetActive(true);
             transform.position = Vector2.zero;
             _rb.velocity = transform.TransformDirection(_startVelocity);
         }else if (collision.gameObject.layer == 6)
