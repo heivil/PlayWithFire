@@ -47,3 +47,6 @@ TagManager:
   - name: Ball
     uniqueID: 3774447163
     locked: 0
+  - name: Fire
+    uniqueID: 2423326867
+    locked: 0
