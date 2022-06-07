@@ -9,7 +9,7 @@ public class Menu : MonoBehaviour
     public Paddle _paddle;
     public Sprite _startBG, _gameOverBG;
     private Image _BG;
-
+    public GameObject _rotateButtons;
 
     private void Awake()
     {
@@ -26,6 +26,7 @@ public class Menu : MonoBehaviour
         _playText.SetActive(false);
         _shouldNotPlayText.SetActive(true);
         gameObject.SetActive(false);
+        _rotateButtons.SetActive(true);
     }
 
     public void Mute()

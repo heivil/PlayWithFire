@@ -41,12 +41,22 @@ public class Paddle : MonoBehaviour
     {
         if (Input.GetKey("left"))
         {
-            RotateAndLook(_rotateSpeed);
+            RotateLeft();
         }
         else if (Input.GetKey("right"))
         {
-            RotateAndLook(-_rotateSpeed);
+            RotateRight();
         }
+    }
+
+    public void RotateRight()
+    {
+        RotateAndLook(-_rotateSpeed);
+    }
+
+    public void RotateLeft()
+    {
+        RotateAndLook(_rotateSpeed);
     }
 
     private void RotateAndLook(float rotateSpeed)
