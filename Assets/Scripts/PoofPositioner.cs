@@ -12,7 +12,7 @@ public class PoofPositioner : MonoBehaviour
     /// </summary>
     private void OnEnable()
     {
-        _poofRight.transform.position = new Vector2(transform.right.x * _paddle.GetLength() / 2, transform.position.y);
-        _poofLeft.transform.position = new Vector2(-transform.right.x * _paddle.GetLength() / 2, transform.position.y);
+        _poofRight.transform.position = transform.position + transform.right * _paddle.GetLength() / 2;
+        _poofLeft.transform.position = transform.position - transform.right * _paddle.GetLength() / 2;
     }
 }
