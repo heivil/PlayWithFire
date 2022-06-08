@@ -7,9 +7,11 @@ public class Menu : MonoBehaviour
 {
     public GameObject _fireBall, _playText, _shouldNotPlayText;
     public Paddle _paddle;
-    public Sprite _startBG, _gameOverBG;
+    public Sprite _startBG, _gameOverBG, _unmutedUnpressed, _mutedUnpressed;
+    public Button _muteButton;
     private Image _BG;
     public GameObject _rotateButtons;
+    public SpriteState _unmutedState, _mutedState;
 
     private void Awake()
     {
@@ -31,6 +33,18 @@ public class Menu : MonoBehaviour
 
     public void Mute()
     {
-        ///mutesoinfsadfs
+        if (AudioListener.volume == 1)
+        {
+            AudioListener.volume = 0;
+            _muteButton.spriteState = _mutedState;
+            _muteButton.image.sprite = _mutedUnpressed;
+        }
+        else
+        {
+            AudioListener.volume = 1;
+            _muteButton.spriteState = _unmutedState;
+            _muteButton.image.sprite = _unmutedUnpressed;
+        }
+        
     }
 }
