@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Paddle : MonoBehaviour
 {
@@ -13,8 +14,16 @@ public class Paddle : MonoBehaviour
     private SpriteRenderer _renderer;
     private Animator _animator;
     public Sprite[] _sprites = new Sprite[12];
-    private  BoxCollider2D _collider; 
+    private  BoxCollider2D _collider;
+    private int _score = 0;
+    public TextMeshProUGUI _scoreText;
 
+    public int Score
+    {
+
+        set { _score = value; }
+        get { return _score; }
+    }
     public float GetLength()
     {
         return _renderer.sprite.bounds.size.x;
@@ -73,7 +82,8 @@ public class Paddle : MonoBehaviour
         {
             _hitCounter++;
             _animator.SetTrigger("Hit");
-
+            _score++;
+            _scoreText.text = _score.ToString();
             _poofs.SetActive(true);
             if (_hitCounter == _shrinkInterval && _shrinkCounter < 11)
             {
