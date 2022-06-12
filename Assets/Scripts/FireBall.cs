@@ -12,7 +12,7 @@ public class FireBall : MonoBehaviour
     private Vector3 _splashOffset = new Vector3(0, 0.2f, 0);
     public GameObject _gameOverFire;
     private Quaternion _ogRotation;
-
+    public AudioPlayer _audioPlayer;
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -58,6 +58,7 @@ public class FireBall : MonoBehaviour
         if (collision.gameObject.layer == 9)
         {
             _gameOverFire.SetActive(true);
+            _audioPlayer.PlayBurn();
             transform.position = Vector2.zero;
             _rb.velocity = transform.TransformDirection(_startVelocity);
             gameObject.SetActive(false);

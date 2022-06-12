@@ -17,6 +17,7 @@ public class Paddle : MonoBehaviour
     private  BoxCollider2D _collider;
     private int _score = 0;
     public TextMeshProUGUI _scoreText;
+    public AudioPlayer _audioPlayer;
 
     public int Score
     {
@@ -85,6 +86,7 @@ public class Paddle : MonoBehaviour
             _score++;
             _scoreText.text = _score.ToString();
             _poofs.SetActive(true);
+            _audioPlayer.PlayBoing();
             if (_hitCounter == _shrinkInterval && _shrinkCounter < 11)
             {
                 _shrinkCounter++;
